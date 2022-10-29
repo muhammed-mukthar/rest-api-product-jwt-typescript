@@ -1,6 +1,6 @@
 
-import {object,string} from 'zod'
-export const createUser =object({
+import {object,string,TypeOf} from 'zod'
+export   const createUserSchema =object({
 
     body:object({
         name:string({
@@ -18,5 +18,9 @@ export const createUser =object({
 }).refine((data)=>data.password === data.passwordConfirmation,{
     message:"password do not match",
     path:['passwordConfirmation']
-})
-})
+}),
+});
+
+
+export type CreateUserInput=Omit<
+TypeOf<typeof createUserSchema>,'body.passwordConfirmation'>

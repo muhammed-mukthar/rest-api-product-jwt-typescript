@@ -22,7 +22,7 @@ password:{type:String,required:true}
 
 userSchema.pre("save",async function(next){
     let user=this as UserDocument
-    if(user.isModified('password')){
+    if(! user.isModified('password')){
         return next();
     }
     const salt = await bcrypt.genSalt(config.get<number>('saltWorkFactor'))
