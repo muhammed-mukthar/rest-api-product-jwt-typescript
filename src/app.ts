@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
+import deserializedUser from './middleware/deserializeUser'
 dotenv.config();
 import config from "config";
 
@@ -13,7 +14,7 @@ const port = config.get<number>("port");
 const app = express();
 
 app.use(express.json())
-
+app.use(deserializedUser)
 
 console.log(port);
 

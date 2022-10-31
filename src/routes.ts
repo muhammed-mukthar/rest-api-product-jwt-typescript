@@ -1,5 +1,5 @@
 import {Express,Request,Response} from 'express'
-import { createUserSessionHandler } from './controller/session.controller'
+import { createUserSessionHandler, getUserSesssionsHandler } from './controller/session.controller'
 import { createUserHandler } from './controller/user.controller'
 import validateResource from './middleware/validateResource'
 import { createSessionSchema } from './schema/session.schema'
@@ -10,6 +10,7 @@ function routes(app:Express){
 
     app.post('/api/users',validateResource(createUserSchema),createUserHandler)
     app.post('/api/sessions',validateResource(createSessionSchema),createUserSessionHandler)
+    app.get('/api/sessions',getUserSesssionsHandler)
 }
 
 export default routes
