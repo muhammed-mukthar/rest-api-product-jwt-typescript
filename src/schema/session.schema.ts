@@ -1,4 +1,7 @@
+import { Session } from 'inspector';
+import { FilterQuery, UpdateQuery } from 'mongoose';
 import {object,string } from 'zod';
+import SessionModel, { SessionDocument } from '../models/session.model';
 
 export const createSessionSchema=object({
   body:object({
@@ -10,3 +13,7 @@ export const createSessionSchema=object({
     })
 })
   })  
+
+  export async function updateSession(query:FilterQuery<SessionDocument>,update:UpdateQuery<SessionDocument>){
+return SessionModel.updateOne(query,update)
+  }

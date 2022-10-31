@@ -12,6 +12,8 @@ export function signJwt(object:Object,options?:jwt.SignOptions|undefined){
 
   export function verifyJwt(token:string){
     try{
+      console.log("token er",token);
+      
       const decoded=jwt.verify(token,publicKey)  
       return {
         valid:true,
