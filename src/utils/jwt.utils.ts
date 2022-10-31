@@ -10,7 +10,7 @@ export function signJwt(object:Object,options?:jwt.SignOptions|undefined){
   }
   
 
-  export function verifyJwt(token:string){
+  export function verifyJwt(token:any){
     try{
       console.log("token er",token);
       
