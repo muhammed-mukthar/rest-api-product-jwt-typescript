@@ -16,10 +16,11 @@ if(!accessToken){
 }
 
 const {decoded,expired}=verifyJwt(accessToken)
+console.log(decoded,'decodedfsdfsdfksjhkfhlkfsad');
 
 
 if(decoded){
-    res.locals.user=decoded
+   res.locals.user=decoded
     return next()
 }
 

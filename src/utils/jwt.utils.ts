@@ -14,14 +14,16 @@ export function signJwt(object:Object,options?:jwt.SignOptions|undefined){
     try{
       console.log("token er",token);
       
-      const decoded=jwt.verify(token,publicKey)  
+      const decoded=jwt.verify(token,publicKey) 
+      console.log(decoded,'decoded');
+       
       return {
         valid:true,
         expired:true,
         decoded
     }
     }catch(e:any){
-        console.log(e);
+        console.log(e,'hallo');
         
 return {
     valid:false,
